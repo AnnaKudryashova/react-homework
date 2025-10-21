@@ -1,25 +1,10 @@
-import { Component } from 'react';
 import './App.css';
+import HomePage from './pages/HomePage.jsx';
 
-const items = ['Home', 'Menu', 'Company', 'Login'];
-
-class App extends Component {
-    handleItemClick = (item) => {
-        console.log(`Clicked on: ${item}`);
-        alert(`You clicked on: ${item}`);
-    };
-
-    render() {
-        return (
-            <ul>
-                {items.map((item, index) => (
-                    <li key={index} onClick={() => this.handleItemClick(item)}>
-                        {item}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
-}
+const App = () => (
+    <div className="App">
+        <HomePage />
+    </div>
+);
 
 export default App;
