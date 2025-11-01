@@ -1,0 +1,70 @@
+.container {
+    width: 100%;
+    background-color: #f5fbfc;
+    background-image: url('../../assets/images/footer-bg.svg');
+    background-repeat: no-repeat;
+    padding: 6.25rem 0 3.75rem;
+    background-position: -10% 100%;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 75rem;
+}
+
+.mainContent {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 3.75rem;
+}
+
+.brandLogo {
+    width: 2.5rem;
+    height: 3.19rem;
+}
+
+.description {
+    color: #546285;
+    font: normal 400 1rem Inter, sans-serif;
+    letter-spacing: 0.0225rem;
+    text-align: start;
+    margin: 1.56rem 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.navigation {
+    min-width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6.25rem;
+}
+
+.secondaryContent {
+    width: 100%;
+    height: 6.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid #7e828f17;
+}
+
+.credits {
+    display: flex;
+    gap: 0.5rem;
+    color: #353448;
+    font-size: 0.94rem;
+    line-height: 1.33;
+    margin-bottom: 0.63rem;
+}
+
+.link {
+    color: #35b8be;
+    transition: color 0.2s ease;
+}
+
+.socials {
+    display: flex;
+    gap: 1.5rem;
+}

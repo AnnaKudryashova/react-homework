@@ -1,0 +1,89 @@
+.container {
+    width: 100%;
+    background-image: url('../../assets/images/home-bg.svg');
+    background-size: cover;
+    background-position: center;
+    padding: 0 7.5rem;
+    display: flex;
+}
+
+.content {
+    display: flex;
+}
+
+.textContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.headline {
+    margin-bottom: 1.69rem;
+    font: normal 400 3.5rem Inter, sans-serif;
+    color: #08090a;
+    display: flex;
+    flex-wrap: nowrap;
+    letter-spacing: 1.8px;
+    max-width: 37.875rem;
+}
+
+.ratingScore,
+.ctaLink {
+    color: #35b8be;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.description {
+    color: #546285;
+    font: normal 400 1.12rem Inter, sans-serif;
+    line-height: 134%;
+    letter-spacing: 0.36px;
+    margin-bottom: 3rem;
+    max-width: 34rem;
+}
+
+.actions {
+    margin-bottom: 2rem;
+}
+
+.trustIndicator {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1rem;
+}
+
+.trustpilotIcon {
+    width: 110px;
+    height: auto;
+}
+
+.rating {
+    margin-top: 0.6rem;
+    font-size: 1rem;
+}
+
+.ratingLink {
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.visual {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin: 6.25rem 0;
+}
+
+.heroVisual {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}

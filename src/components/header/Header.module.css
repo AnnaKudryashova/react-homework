@@ -1,0 +1,53 @@
+.container {
+    width: 100%;
+    padding: 1.56rem 7.5rem;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.brandLink {
+    display: flex;
+    align-items: center;
+}
+
+.brandLogo {
+    width: 2.5rem;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.brandLogo:hover {
+    transform: scale(1.15);
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    margin-right: 3.94rem;
+    list-style: none;
+    padding: 0;
+}
+
+.menuItem.active {
+    color: #35b8be;
+}
+
+.menuItem {
+    color: #28224b;
+    font: normal 400 0.94rem Inter, sans-serif;
+    line-height: 1.33;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.menuItem:hover {
+    color: #35b8be;
+}
+
+.cartNav {
+    display: flex;
+}
