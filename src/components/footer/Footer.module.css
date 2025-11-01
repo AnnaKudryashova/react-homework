@@ -1,34 +1,21 @@
 .container {
     width: 100%;
-    margin: 0 auto;
     background-color: #f5fbfc;
-    background-image: url('src/assets/images/footer-bg.svg');
+    background-image: url('../../assets/images/footer-bg.svg');
     background-repeat: no-repeat;
-    padding: 6.25rem 0;
+    padding: 6.25rem 0 3.75rem;
     background-position: -10% 100%;
 }
 
 .content {
     margin: 0 auto;
     max-width: 75rem;
-    max-height: 27.06rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .mainContent {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     padding-right: 3.75rem;
-}
-
-.brandSection {
-    display: flex;
-    flex-direction: column;
 }
 
 .brandLogo {
@@ -60,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border-top: 1px solid rgba(126, 130, 143, 0.09);
+    border-top: 1px solid #7e828f17;
 }
 
 .credits {

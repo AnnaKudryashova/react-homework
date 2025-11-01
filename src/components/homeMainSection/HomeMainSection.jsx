@@ -9,13 +9,10 @@ const HomeMainSection = () => {
             <div className={styles.content}>
                 <div className={styles.textContent}>
                     <div className={styles.headline}>
-                        <span>
-                            Beautiful food &amp; takeaway,
-                            <a href="/" className={styles.ctaLink}>
-                                {' '}
-                                delivered{' '}
-                            </a>
-                            to your door.
+                        <span className={styles.ctaContainer}>
+                            Beautiful food &amp; takeaway,{' '}
+                            <span className={styles.ctaLink}>delivered</span> to
+                            your door.
                         </span>
                     </div>
                     <div className={styles.description}>
@@ -38,10 +35,9 @@ const HomeMainSection = () => {
                         />
                         <div className={styles.rating}>
                             <a href="/" className={styles.ratingLink}>
-                                {' '}
                                 <span className={styles.ratingScore}>
                                     4.8 out of 5
-                                </span>{' '}
+                                </span>
                             </a>
                             based on 2000+ reviews
                         </div>

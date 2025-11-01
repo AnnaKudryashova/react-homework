@@ -6,7 +6,7 @@
     padding: 15px 35px;
     background-color: #35b8be;
     border-radius: 6px;
-    border: 1px solid rgba(106, 124, 143, 0.2);
+    border: 1px solid #6a7c8f33;
     cursor: pointer;
     transition: all 0.3s ease;
 }

@@ -1,9 +1,12 @@
 .container {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 1.56rem 7.5rem;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .brandLink {
@@ -21,20 +24,15 @@
     transform: scale(1.15);
 }
 
-.navigation {
-    display: flex;
-    align-items: center;
-    gap: 0.88rem;
-}
-
 .menu {
     display: flex;
     gap: 2rem;
     margin-right: 3.94rem;
     list-style: none;
+    padding: 0;
 }
 
-.menuItem:first-child {
+.menuItem.active {
     color: #35b8be;
 }
 
@@ -50,43 +48,6 @@
     color: #35b8be;
 }
 
-.cartButton {
+.cartNav {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.44rem;
-    height: 3.44rem;
-    background-color: #35b8be;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    position: relative;
-}
-
-.cartButton:hover {
-    transform: scale(1.15);
-}
-
-.cartIcon {
-    width: 1.56rem;
-    height: 1.06rem;
-}
-
-.badge {
-    color: #35b8be;
-    text-align: center;
-    font: normal 400 0.81rem Inter, sans-serif;
-    line-height: 1.38;
-    position: absolute;
-    top: -0.44rem;
-    right: -0.44rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.13rem;
-    height: 1.13rem;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 3px 1px rgba(56, 194, 201, 0.5);
 }
