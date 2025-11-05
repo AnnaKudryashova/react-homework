@@ -1,0 +1,75 @@
+.menuSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8.75rem 7.5rem;
+    background-image: url('../../assets/images/menu-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    margin: 0.81rem 0 1.63rem 0;
+    text-align: center;
+    color: var(--color-blue);
+    font: normal 400 3.13rem Inter, sans-serif;
+    line-height: 3.44rem;
+    letter-spacing: 0.1rem;
+}
+
+.description {
+    text-align: center;
+    color: var(--color-grey);
+    font: normal 400 1rem Inter, sans-serif;
+    line-height: 1.69rem;
+    letter-spacing: 0.02rem;
+    word-wrap: break-word;
+    margin: 0 0 3.13rem 0;
+}
+
+.phoneTooltip {
+    position: relative;
+    color: var(--color-blue);
+    cursor: pointer;
+    margin: 0 0.4rem;
+}
+
+.tooltipText {
+    visibility: hidden;
+    width: 10rem;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.88rem;
+    line-height: 1.2;
+    z-index: 1;
+}
+
+.phoneTooltip:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.buttonRow {
+    display: flex;
+    gap: 1.88rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.noMenuItems {
+    color: var(--color-grey);
+    font: normal 400 1rem Inter sans-serif;
+    line-height: 1.69rem;
+    letter-spacing: 0.02rem;
+    text-align: center;
+}

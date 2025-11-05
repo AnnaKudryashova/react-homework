@@ -4,14 +4,8 @@
 }
 
 .content {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-}
-
-.brandLink {
-    display: flex;
-    align-items: center;
 }
 
 .brandLogo {
@@ -33,19 +27,19 @@
 }
 
 .menuItem.active {
-    color: #35b8be;
+    color: var(--color-blue);
 }
 
 .menuItem {
     color: #28224b;
     font: normal 400 0.94rem Inter, sans-serif;
     line-height: 1.33;
-    cursor: pointer;
+    cursor: default;
     transition: color 0.2s ease;
 }
 
 .menuItem:hover {
-    color: #35b8be;
+    color: var(--color-blue);
 }
 
 .cartNav {

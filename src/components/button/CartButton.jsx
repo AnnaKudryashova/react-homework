@@ -1,7 +1,9 @@
 import styles from './CartButton.module.css';
 import cartIcon from '../../assets/icons/cart.svg';
-const cartCount = 0;
+import { useCart } from '../../contexts/CartContext.jsx';
+
 export const CartButton = () => {
+    const { cartCount } = useCart();
     return (
         <button className={styles.cartButton}>
             <img
@@ -9,7 +11,7 @@ export const CartButton = () => {
                 alt="Shopping cart"
                 className={styles.cartIcon}
             />
-            <span className={styles.badge}>{cartCount}</span>
+            <span className={styles.cartCount}>{cartCount}</span>
         </button>
     );
 };

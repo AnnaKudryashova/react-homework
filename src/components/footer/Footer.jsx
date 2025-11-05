@@ -20,8 +20,7 @@ const Footer = () => {
                             <span>for small - medium businesses.</span>
                         </p>
                     </div>
-
-                    <div className={styles.navigation}>
+                    <nav className={styles.navigation}>
                         {footerLinks.map((section) => (
                             <LinkColumn
                                 key={section.title}
@@ -29,18 +28,14 @@ const Footer = () => {
                                 links={section.links}
                             />
                         ))}
-                    </div>
+                    </nav>
                 </div>
                 <div className={styles.secondaryContent}>
                     <div className={styles.credits}>
                         <span>Built by</span>
-                        <a href="/" className={styles.link}>
-                            Flowbase
-                        </a>
+                        <a className={styles.link}>Flowbase</a>
                         <span>· Powered by</span>
-                        <a href="/" className={styles.link}>
-                            Webflow
-                        </a>
+                        <a className={styles.link}>Webflow</a>
                     </div>
                     <div className={styles.socials}>
                         {socialLinks.map((social) => (

@@ -1,12 +1,12 @@
 import Header from '../components/Header/Header';
-import HomeMainSection from '../components/homeMainSection/HomeMainSection';
+import Home from '../components/home/Home';
 import Footer from '../components/footer/Footer';
 import styles from './HomePage.module.css';
 
 const HomePage = () => (
     <div className={styles.homePage}>
-        <Header />
-        <HomeMainSection />
+        <Header activeIndex={0} />
+        <Home />
         <Footer />
     </div>
 );

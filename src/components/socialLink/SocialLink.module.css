@@ -1,6 +1,6 @@
 .socialLink {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,12 +10,13 @@
 }
 
 .socialLink:hover {
-    background-color: #35b8be78;
+    background-color: var(--color-blue);
     transform: scale(1.1);
 }
+
 .iconImage {
-    width: 18px;
-    height: 18px;
+    width: 1.13rem;
+    height: 1.13rem;
     opacity: 0.8;
     transition: opacity 0.3s;
 }

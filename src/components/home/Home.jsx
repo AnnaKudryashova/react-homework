@@ -1,9 +1,9 @@
-import styles from './HomeMainSection.module.css';
+import styles from './Home.module.css';
 import Button from '../Button/Button.jsx';
 import foodImage from '../../assets/images/home.png';
 import trustpilotIcon from '../../assets/icons/trustpilot.svg';
 
-const HomeMainSection = () => {
+const Home = () => {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
@@ -55,4 +55,4 @@ const HomeMainSection = () => {
     );
 };
 
-export default HomeMainSection;
+export default Home;

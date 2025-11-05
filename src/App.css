@@ -1,10 +1,12 @@
 #root {
-}
-
-.App {
+    --max-width: 90rem;
+    --color-white: #fff;
+    --color-black: #08090a;
+    --color-blue: #35b8be;
+    --color-grey: #546285;
 }
 
 .main-container {
-    max-width: 90rem;
+    max-width: var(--max-width);
     margin: 0 auto;
 }

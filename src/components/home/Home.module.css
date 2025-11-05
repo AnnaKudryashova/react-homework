@@ -21,16 +21,14 @@
 .headline {
     margin-bottom: 1.69rem;
     font: normal 400 3.5rem Inter, sans-serif;
-    color: #08090a;
-    display: flex;
-    flex-wrap: nowrap;
-    letter-spacing: 1.8px;
+    color: var(--color-black);
+    letter-spacing: 0.11rem;
     max-width: 37.875rem;
 }
 
 .ratingScore,
 .ctaLink {
-    color: #35b8be;
+    color: var(--color-blue);
 }
 
 .rating {
@@ -40,10 +38,10 @@
 }
 
 .description {
-    color: #546285;
+    color: var(--color-grey);
     font: normal 400 1.12rem Inter, sans-serif;
     line-height: 134%;
-    letter-spacing: 0.36px;
+    letter-spacing: 0.02rem;
     margin-bottom: 3rem;
     max-width: 34rem;
 }
@@ -52,15 +50,8 @@
     margin-bottom: 2rem;
 }
 
-.trustIndicator {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 1rem;
-}
-
 .trustpilotIcon {
-    width: 110px;
+    width: 6.88rem;
     height: auto;
 }
 
@@ -76,10 +67,7 @@
 }
 
 .visual {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    margin: 6.25rem 0;
+    margin: 6.25rem 0 8.75rem;
 }
 
 .heroVisual {

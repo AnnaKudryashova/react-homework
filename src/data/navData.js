@@ -1,32 +1,32 @@
 export const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Menu', href: '/' },
-    { label: 'Company', href: '/' },
-    { label: 'Login', href: '/' },
+    { label: 'Home', url: '#' },
+    { label: 'Menu', url: '#' },
+    { label: 'Company', url: '#' },
+    { label: 'Login', url: '#' },
 ];
 
 export const footerLinks = [
     {
         title: 'COMPANY',
         links: [
-            { label: 'Home', url: '/' },
-            { label: 'Order', url: '/' },
-            { label: 'FAQ', url: '/' },
-            { label: 'Contact', url: '/' },
+            { label: 'Home' },
+            { label: 'Order' },
+            { label: 'FAQ' },
+            { label: 'Contact' },
         ],
     },
     {
         title: 'TEMPLATE',
         links: [
-            { label: 'Style Guide', url: '/' },
-            { label: 'Changelog', url: '/' },
-            { label: 'License', url: '/' },
-            { label: 'Webflow University', url: '/' },
+            { label: 'Style Guide', url: 'https://google.com' },
+            { label: 'Changelog', url: 'https://google.com' },
+            { label: 'License', url: 'https://google.com' },
+            { label: 'Webflow University', url: 'https://google.com' },
         ],
     },
     {
         title: 'FLOWBASE',
-        links: [{ label: 'More Cloneables', url: '/' }],
+        links: [{ label: 'More Cloneables' }],
     },
 ];
 
@@ -34,16 +34,13 @@ export const socialLinks = [
     {
         icon: 'src/assets/icons/instagram.svg',
         alt: 'Instagram',
-        url: 'https://instagram.com',
     },
     {
         icon: 'src/assets/icons/twitter.svg',
         alt: 'Twitter',
-        url: 'https://twitter.com',
     },
     {
         icon: 'src/assets/icons/youtube.svg',
         alt: 'YouTube',
-        url: 'https://youtube.com',
     },
 ];
