@@ -7,6 +7,7 @@ const App = () => (
     <CartProvider>
         <div className="App">
             <div className="main-container">
+                {/* TODO: Re-enable HomePage when implementing React Router */}
                 {/* <HomePage /> */}
                 <MenuPage />
             </div>

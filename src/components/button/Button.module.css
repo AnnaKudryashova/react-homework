@@ -15,7 +15,7 @@
     transform: scale(1.05);
 }
 
-.inactive {
+.secondary {
     background-color: transparent;
     color: #222;
 }

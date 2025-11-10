@@ -16,12 +16,12 @@ const CartProvider = ({ children }) => {
     );
 };
 
-const useCart = () => {
+const useCartContext = () => {
     const context = useContext(CartContext);
     if (!context) {
-        throw new Error('useCart must be used within a CartProvider');
+        throw new Error('useCartContext must be used within a CartProvider');
     }
     return context;
 };
 
-export { CartContext, CartProvider, useCart };
+export { CartContext, CartProvider, useCartContext };

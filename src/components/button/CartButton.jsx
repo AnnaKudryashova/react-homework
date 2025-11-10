@@ -1,9 +1,9 @@
 import styles from './CartButton.module.css';
 import cartIcon from '../../assets/icons/cart.svg';
-import { useCart } from '../../contexts/CartContext.jsx';
+import { useCartContext } from '../../contexts/CartContext.jsx';
 
 export const CartButton = () => {
-    const { cartCount } = useCart();
+    const { cartCount } = useCartContext();
     return (
         <button className={styles.cartButton}>
             <img

@@ -1,13 +1,15 @@
-import { useCart } from '../../contexts/CartContext.jsx';
+import { useState } from 'react';
+import { useCartContext } from '../../contexts/CartContext.jsx';
 import Button from '../button/Button.jsx';
 import styles from './Card.module.css';
 
 const Card = ({ item }) => {
-    const { addToCart } = useCart();
+    const { addToCart } = useCartContext();
     const { meal, price, img, instructions } = item;
+    const [quantity, setQuantity] = useState(1);
 
     const handleAddToCart = () => {
-        addToCart(1);
+        addToCart(quantity);
     };
 
     return (
@@ -26,8 +28,11 @@ const Card = ({ item }) => {
                 <div className={styles.cardActions}>
                     <input
                         type="number"
-                        defaultValue="1"
-                        readOnly
+                        min="1"
+                        value={quantity}
+                        onChange={(e) =>
+                            setQuantity(parseInt(e.target.value) || 1)
+                        }
                         className={styles.quantityInput}
                     />
                     <Button

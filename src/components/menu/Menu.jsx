@@ -41,7 +41,10 @@ const Menu = () => {
             </p>
             <div className={styles.buttonRow}>
                 {categories.map((category, index) => (
-                    <Button key={category} isActive={index === 0}>
+                    <Button
+                        key={category}
+                        variant={index === 0 ? 'primary' : 'secondary'}
+                    >
                         {category}
                     </Button>
                 ))}
