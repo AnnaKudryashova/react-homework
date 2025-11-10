@@ -1,13 +1,12 @@
+import { CartButton } from '../button/CartButton';
 import styles from './Header.module.css';
 import logoIcon from '../../assets/icons/logo.svg';
 import { navItems } from '../../data/navData';
-import { CartButton } from '../button/CartButton';
 
-const cartCount = 0;
-const Header = () => {
+const Header = ({ activeIndex = 0 }) => {
     return (
         <header className={styles.container}>
-            <div class={styles.content}>
+            <div className={styles.content}>
                 <a href="/" className={styles.brandLink}>
                     <img
                         src={logoIcon}
@@ -22,7 +21,9 @@ const Header = () => {
                                 <li
                                     key={item.label}
                                     className={`${styles.menuItem} ${
-                                        index === 0 ? styles.active : ''
+                                        index === activeIndex
+                                            ? styles.active
+                                            : ''
                                     }`}
                                 >
                                     {item.label}
