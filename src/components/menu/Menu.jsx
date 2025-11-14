@@ -11,7 +11,7 @@ const MEALS_PER_LOAD = 6;
 
 const Menu = () => {
     const [mealsToShow, setMealsToShow] = useState(INITIAL_MEALS_COUNT);
-
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const { data: meals, error, isLoading } = useFetch(`${API_BASE_URL}/meals`);
 
     const categories = useMemo(
@@ -19,14 +19,27 @@ const Menu = () => {
         [meals]
     );
 
+    const filteredMeals = useMemo(() => {
+        if (!meals) return [];
+        if (!selectedCategory) return meals;
+        return meals.filter((meal) => meal.category === selectedCategory);
+    }, [meals, selectedCategory]);
+
+    const visibleMeals = filteredMeals.slice(0, mealsToShow);
+
     if (error) {
         return <p>Menu loading error: {error.message}</p>;
     }
 
-    const visibleMeals = meals ? meals.slice(0, mealsToShow) : [];
-
     const handleLoadMore = () => {
         setMealsToShow((prevCount) => prevCount + MEALS_PER_LOAD);
+    };
+
+    const handleCategoryChange = (category) => {
+        setSelectedCategory((current) =>
+            current === category ? null : category
+        );
+        setMealsToShow(INITIAL_MEALS_COUNT);
     };
 
     return (
@@ -40,10 +53,15 @@ const Menu = () => {
                 our store <br /> to place a pickup order. Fast and fresh food.
             </p>
             <div className={styles.buttonRow}>
-                {categories.map((category, index) => (
+                {categories.map((category) => (
                     <Button
                         key={category}
-                        variant={index === 0 ? 'primary' : 'secondary'}
+                        onClick={() => handleCategoryChange(category)}
+                        variant={
+                            selectedCategory === category
+                                ? 'primary'
+                                : 'secondary'
+                        }
                     >
                         {category}
                     </Button>
@@ -55,7 +73,7 @@ const Menu = () => {
             ) : visibleMeals.length > 0 ? (
                 <>
                     <CardList cards={visibleMeals} />
-                    {visibleMeals.length < meals.length && (
+                    {visibleMeals.length < filteredMeals.length && (
                         <Button onClick={handleLoadMore}>See more</Button>
                     )}
                 </>
