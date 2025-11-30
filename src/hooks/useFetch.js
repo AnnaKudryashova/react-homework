@@ -1,35 +1,59 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+
+const saveLog = (entry) => {
+    try {
+        const logs = JSON.parse(localStorage.getItem('apiResponseLogs')) || [];
+        logs.push(entry);
+        localStorage.setItem('apiResponseLogs', JSON.stringify(logs));
+    } catch (error) {
+        console.error('Failed to save logs to localStorage:', error);
+    }
+};
 
 const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [status, setStatus] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setIsLoading(true);
-                const response = await fetch(url);
+    const fetchData = useCallback(async () => {
+        setIsLoading(true);
+        setError(null);
 
-                if (!response.ok) {
-                    throw new Error(
-                        `Failed to load data. Status: ${response.status}`
-                    );
-                }
+        const timestamp = new Date().toISOString();
 
-                const result = await response.json();
-                setData(result);
-            } catch (err) {
-                setError(err);
-            } finally {
-                setIsLoading(false);
+        try {
+            const response = await fetch(url);
+            const statusCode = response.status;
+            setStatus(statusCode);
+
+            const responseBody = response.ok ? await response.json() : null;
+
+            saveLog({
+                timestamp,
+                type: response.ok ? 'success' : 'error',
+                url,
+                status: statusCode,
+                response: responseBody,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${statusCode}`);
             }
-        };
 
-        fetchData();
+            setData(responseBody);
+        } catch (err) {
+            setError(err);
+        } finally {
+            setIsLoading(false);
+        }
     }, [url]);
 
-    return { data, error, isLoading };
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
+    return { data, error, isLoading, status };
 };
 
 export default useFetch;
