@@ -6,9 +6,10 @@ const Button = ({
     onClick,
     className,
     disabled = false,
+    type = 'button',
 }) => (
     <button
-        type="button"
+        type={type}
         className={`${styles.button} ${styles[variant]} ${className || ''}`}
         onClick={disabled ? undefined : onClick}
         disabled={disabled}

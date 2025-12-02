@@ -1,8 +1,7 @@
 export const navItems = [
-    { label: 'Home', url: '#' },
-    { label: 'Menu', url: '#' },
-    { label: 'Company', url: '#' },
-    { label: 'Login', url: '#' },
+    { label: 'Home', path: '/' },
+    { label: 'Menu', path: '/menu' },
+    { label: 'Order', path: '/order' },
 ];
 
 export const footerLinks = [
