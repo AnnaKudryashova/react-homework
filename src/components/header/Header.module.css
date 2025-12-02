@@ -26,10 +26,6 @@
     padding: 0;
 }
 
-.menuItem.active {
-    color: var(--color-blue);
-}
-
 .menuItem {
     color: #28224b;
     font: normal 400 0.94rem Inter, sans-serif;
@@ -44,4 +40,27 @@
 
 .cartNav {
     display: flex;
+}
+
+.menuLink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.menuLink.active {
+    color: var(--color-blue);
+}
+
+.menuButton {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.menuButton:hover {
+    color: var(--color-blue);
 }
