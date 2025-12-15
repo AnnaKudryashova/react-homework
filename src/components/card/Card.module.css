@@ -87,11 +87,6 @@
     color: #000;
 }
 
-.quantityInput::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .addToCartButton {
     padding: 0.56rem 1.68rem;
     width: 9.18rem;
