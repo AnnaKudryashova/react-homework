@@ -1,18 +1,30 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMeals } from '../../redux/slices/mealsSlice.js';
+import { setCategory, loadMoreMeals } from '../../redux/slices/filterSlice.js';
 import styles from './Menu.module.css';
 import Button from '../button/Button.jsx';
 import CardList from '../cardList/CardList.jsx';
 import Tooltip from '../tooltip/Tooltip.jsx';
-import useFetch from '../../hooks/useFetch.js';
-import { API_BASE_URL } from '../../services/api.js';
 
-const INITIAL_MEALS_COUNT = 6;
 const MEALS_PER_LOAD = 6;
 
 const Menu = () => {
-    const [mealsToShow, setMealsToShow] = useState(INITIAL_MEALS_COUNT);
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const { data: meals, error, isLoading } = useFetch(`${API_BASE_URL}/meals`);
+    const dispatch = useDispatch();
+    const {
+        meals,
+        loading: isLoading,
+        error,
+    } = useSelector((state) => state.meals);
+    const { selectedCategory, mealsToShow } = useSelector(
+        (state) => state.filter
+    );
+
+    useEffect(() => {
+        if (meals.length === 0) {
+            dispatch(fetchMeals());
+        }
+    }, [dispatch, meals.length]);
 
     const categories = useMemo(
         () => (meals ? [...new Set(meals.map((meal) => meal.category))] : []),
@@ -20,7 +32,7 @@ const Menu = () => {
     );
 
     const filteredMeals = useMemo(() => {
-        if (!meals) return [];
+        if (!meals || meals.length === 0) return [];
         if (!selectedCategory) return meals;
         return meals.filter((meal) => meal.category === selectedCategory);
     }, [meals, selectedCategory]);
@@ -28,18 +40,15 @@ const Menu = () => {
     const visibleMeals = filteredMeals.slice(0, mealsToShow);
 
     if (error) {
-        return <p>Menu loading error: {error.message}</p>;
+        return <p>Menu loading error: {error}</p>;
     }
 
     const handleLoadMore = () => {
-        setMealsToShow((prevCount) => prevCount + MEALS_PER_LOAD);
+        dispatch(loadMoreMeals(MEALS_PER_LOAD));
     };
 
     const handleCategoryChange = (category) => {
-        setSelectedCategory((current) =>
-            current === category ? null : category
-        );
-        setMealsToShow(INITIAL_MEALS_COUNT);
+        dispatch(setCategory(category));
     };
 
     return (

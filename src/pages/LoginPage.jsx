@@ -1,14 +1,22 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { setUser } from '../redux/slices/authSlice';
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
 } from 'firebase/auth';
+import { useSelector, useDispatch } from 'react-redux';
 import { auth } from '../firebase';
+import Button from '../components/Button/Button';
 import AuthInput from '../components/input/AuthInput';
 import menuBg from '../assets/images/menu-bg.svg';
-import Button from '../components/Button/Button';
 import styles from './LoginPage.module.css';
+import {
+    setEmail,
+    setPassword,
+    toggleIsRegistering,
+    setError,
+    clearForm,
+} from '../redux/slices/loginSlice';
 
 const errorMap = {
     'auth/invalid-credential':
@@ -28,36 +36,51 @@ const getErrorMessage = (errorCode) => {
 };
 
 const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isRegistering, setIsRegistering] = useState(false);
-    const [error, setError] = useState('');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { email, password, isRegistering, error } = useSelector(
+        (state) => state.login
+    );
 
     const handleSubmit = async (e) => {
+        console.log('submit', { email, password, isRegistering });
         e.preventDefault();
 
         try {
             if (isRegistering) {
-                await createUserWithEmailAndPassword(auth, email, password);
-                console.log('User registered');
+                const cred = await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+                const cleanUser = {
+                    uid: cred.user.uid,
+                    email: cred.user.email,
+                };
+                dispatch(setUser(cleanUser));
             } else {
-                await signInWithEmailAndPassword(auth, email, password);
-                console.log('User logged in');
+                const cred = await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+                const cleanUser = {
+                    uid: cred.user.uid,
+                    email: cred.user.email,
+                };
+                dispatch(setUser(cleanUser));
             }
-            setError('');
+            dispatch(setError(''));
             navigate('/order', { replace: true });
-        } catch (error) {
-            console.error('Firebase error:', error.code, error.message);
-            setError(getErrorMessage(error.code));
-            console.error(error);
+        } catch (err) {
+            console.error('Firebase error:', err.code, err.message);
+            dispatch(setError(getErrorMessage(err.code)));
         }
     };
 
     const handleCancel = () => {
-        setEmail('');
-        setPassword('');
-        setError('');
+        dispatch(clearForm());
         navigate('/');
     };
 
@@ -76,7 +99,7 @@ const LoginPage = () => {
                     type="email"
                     placeholder="Email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => dispatch(setEmail(e.target.value))}
                     required
                 />
 
@@ -86,7 +109,7 @@ const LoginPage = () => {
                     type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => dispatch(setPassword(e.target.value))}
                     required
                 />
 
@@ -97,6 +120,7 @@ const LoginPage = () => {
                         {isRegistering ? 'Sign up' : 'Log in'}
                     </Button>
                     <Button
+                        type="button"
                         onClick={handleCancel}
                         variant="secondary"
                         className={styles.cancelButton}
@@ -110,7 +134,7 @@ const LoginPage = () => {
                         ? 'Already have an account? '
                         : "Don't have an account? "}
                     <Button
-                        onClick={() => setIsRegistering(!isRegistering)}
+                        onClick={() => dispatch(toggleIsRegistering())}
                         className={styles.switchLink}
                     >
                         {isRegistering ? 'Sign in' : 'Sign up'}

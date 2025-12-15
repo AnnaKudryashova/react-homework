@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     padding-top: 12rem;
+    padding-bottom: 6rem;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -13,4 +14,160 @@
     font-weight: 400;
     color: var(--color-blue);
     margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.cardList {
+    width: 100%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.cardRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.04);
+}
+
+.cardInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.image {
+    width: 4.5rem;
+    height: 4.5rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.mealTitle {
+    font-size: 1rem;
+    color: var(--color-black);
+}
+
+.cardRight {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.price {
+    font-size: 0.94rem;
+    color: var(--color-blue);
+}
+
+.quantityWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.quantityInput {
+    width: 3rem;
+    height: 2.1rem;
+    border-radius: 0.38rem;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    font-size: 0.94rem;
+    outline: none;
+}
+
+.removeButton {
+    width: 2.4rem;
+    height: 2.1rem;
+    border: none;
+    border-radius: 0.38rem;
+    background-color: #1cc8c3;
+    color: var(--color-white);
+    cursor: pointer;
+    font-size: 0.94rem;
+}
+
+.totalSection {
+    width: 100%;
+    max-width: 60rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.totalLabel {
+    font-size: 1rem;
+    color: var(--color-black);
+    font-weight: 500;
+}
+
+.totalPrice {
+    font-size: 1rem;
+    color: var(--color-blue);
+    font-weight: 500;
+}
+
+.form {
+    width: 100%;
+    max-width: 24rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fieldRow {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.label {
+    width: 4rem;
+    font-size: 0.94rem;
+    color: var(--color-grey);
+}
+
+.input {
+    flex: 1;
+    height: 2.4rem;
+    border-radius: 0.38rem;
+    border: 1px solid #e5e7eb;
+    padding: 0 0.75rem;
+    font-size: 0.94rem;
+    outline: none;
+}
+
+.orderButton {
+    margin-top: 1.25rem;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #1cc8c3;
+    color: var(--color-white);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.successMessage {
+    width: 100%;
+    max-width: 24rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.successText {
+    font-size: 1rem;
+    color: var(--color-grey);
+    margin: 0;
+    line-height: 1.5;
 }

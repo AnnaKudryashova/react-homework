@@ -6,6 +6,8 @@
     justify-content: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
 .title {
