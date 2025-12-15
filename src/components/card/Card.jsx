@@ -1,15 +1,21 @@
 import { useState } from 'react';
-import { useCartContext } from '../../contexts/CartContext.jsx';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/slices/cartSlice.js';
 import Button from '../button/Button.jsx';
 import styles from './Card.module.css';
 
 const Card = ({ item }) => {
-    const { addToCart } = useCartContext();
-    const { meal, price, img, instructions } = item;
+    const dispatch = useDispatch();
+    const { meal, price, img, instructions, id } = item;
     const [quantity, setQuantity] = useState(1);
 
     const handleAddToCart = () => {
-        addToCart(quantity);
+        dispatch(
+            addToCart({
+                meal: { id, meal, price, img },
+                quantity: quantity,
+            })
+        );
     };
 
     return (

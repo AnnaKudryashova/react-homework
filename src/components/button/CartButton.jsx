@@ -1,11 +1,18 @@
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './CartButton.module.css';
 import cartIcon from '../../assets/icons/cart.svg';
-import { useCartContext } from '../../contexts/CartContext.jsx';
 
 export const CartButton = () => {
-    const { cartCount } = useCartContext();
+    const navigate = useNavigate();
+    const cartCount = useSelector((state) => state.cart.totalItems);
+
+    const handleCartClick = () => {
+        navigate('/order');
+    };
+
     return (
-        <button className={styles.cartButton}>
+        <button className={styles.cartButton} onClick={handleCartClick}>
             <img
                 src={cartIcon}
                 alt="Shopping cart"
