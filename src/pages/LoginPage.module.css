@@ -1,0 +1,93 @@
+.loginPage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--color-blue);
+    margin-bottom: 2.5rem;
+}
+
+.form {
+    background-color: var(--color-white);
+    padding: 3rem 4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 32rem;
+    max-width: 40rem;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.label {
+    width: 7rem;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--color-grey);
+}
+
+.input {
+    flex: 1;
+    height: 2.75rem;
+    padding: 0 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid #e5e7eb;
+    font-size: 0.95rem;
+}
+
+.buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.submitButton,
+.cancelButton {
+    height: 3rem;
+}
+
+.cancelButton {
+    color: var(--color-grey);
+}
+
+.switchText {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+    text-align: center;
+}
+
+.switchLink {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-left: 0.25rem;
+    font: inherit;
+    color: var(--color-blue);
+    cursor: pointer;
+}
+
+.switchLink:hover {
+    text-decoration: underline;
+}

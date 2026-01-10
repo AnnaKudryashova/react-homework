@@ -1,13 +1,13 @@
-import Header from '../components/Header/Header';
 import Home from '../components/home/Home';
-import Footer from '../components/footer/Footer';
+import home_bg from '../assets/images/home-bg.svg';
 import styles from './HomePage.module.css';
 
 const HomePage = () => (
-    <div className={styles.homePage}>
-        <Header activeIndex={0} />
+    <div
+        className={styles.homePage}
+        style={{ backgroundImage: `url("${home_bg}")` }}
+    >
         <Home />
-        <Footer />
     </div>
 );
 

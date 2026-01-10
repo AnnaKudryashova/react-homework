@@ -1,13 +1,13 @@
-import Header from '../components/Header/Header';
 import Menu from '../components/menu/Menu';
-import Footer from '../components/footer/Footer';
+import menuBg from '../assets/images/menu-bg.svg';
 import styles from './MenuPage.module.css';
 
 const MenuPage = () => (
-    <div className={styles.menuPage}>
-        <Header activeIndex={1} />
+    <div
+        className={styles.menuPage}
+        style={{ backgroundImage: `url("${menuBg}")` }}
+    >
         <Menu />
-        <Footer />
     </div>
 );
 

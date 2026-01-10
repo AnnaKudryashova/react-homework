@@ -1,3 +1,6 @@
 .menuPage {
-    background: var(--color-white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding-top: 6rem;
 }
