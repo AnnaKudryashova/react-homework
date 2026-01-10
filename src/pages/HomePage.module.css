@@ -5,6 +5,5 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('../assets/images/home-bg.svg');
     background-size: cover;
 }

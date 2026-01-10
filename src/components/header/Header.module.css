@@ -50,17 +50,3 @@
 .menuLink.active {
     color: var(--color-blue);
 }
-
-.menuButton {
-    border: none;
-    background: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-}
-
-.menuButton:hover {
-    color: var(--color-blue);
-}

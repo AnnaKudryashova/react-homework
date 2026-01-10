@@ -5,8 +5,27 @@ import {
     signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { auth } from '../firebase';
+import AuthInput from '../components/input/AuthInput';
+import menuBg from '../assets/images/menu-bg.svg';
 import Button from '../components/Button/Button';
 import styles from './LoginPage.module.css';
+
+const errorMap = {
+    'auth/invalid-credential':
+        'Invalid email or password. Please check your credentials or register new account.',
+    'auth/user-not-found':
+        'User with this email does not exist. Please register first.',
+    'auth/wrong-password': 'Wrong password. Please try again.',
+    'auth/email-already-in-use':
+        'This email is already registered. Please login instead.',
+    'auth/weak-password':
+        'Password is too weak. Please use at least 6 characters.',
+    'auth/invalid-email': 'Invalid email format.',
+};
+
+const getErrorMessage = (errorCode) => {
+    return errorMap[errorCode] || 'An error occurred. Please try again.';
+};
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -35,25 +54,6 @@ const LoginPage = () => {
         }
     };
 
-    const getErrorMessage = (errorCode) => {
-        switch (errorCode) {
-            case 'auth/invalid-credential':
-                return 'Invalid email or password. Please check your credentials or register new account.';
-            case 'auth/user-not-found':
-                return 'User with this email does not exist. Please register first.';
-            case 'auth/wrong-password':
-                return 'Wrong password. Please try again.';
-            case 'auth/email-already-in-use':
-                return 'This email is already registered. Please login instead.';
-            case 'auth/weak-password':
-                return 'Password is too weak. Please use at least 6 characters.';
-            case 'auth/invalid-email':
-                return 'Invalid email format.';
-            default:
-                return 'An error occurred. Please try again.';
-        }
-    };
-
     const handleCancel = () => {
         setEmail('');
         setPassword('');
@@ -62,40 +62,33 @@ const LoginPage = () => {
     };
 
     return (
-        <div className={styles.loginPage}>
+        <div
+            className={styles.loginPage}
+            style={{ backgroundImage: `url("${menuBg}")` }}
+        >
             <h1 className={styles.title}>
                 {isRegistering ? 'Sign up' : 'Log in'}
             </h1>
             <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.row}>
-                    <label className={styles.label} htmlFor="email">
-                        Email
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                        className={styles.input}
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
+                <AuthInput
+                    label="Email"
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
 
-                <div className={styles.row}>
-                    <label className={styles.label} htmlFor="password">
-                        Password
-                    </label>
-                    <input
-                        id="password"
-                        type="password"
-                        className={styles.input}
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
+                <AuthInput
+                    label="Password"
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
 
                 {error && <p className={styles.error}>{error}</p>}
 

@@ -1,12 +1,16 @@
-import styles from './Footer.module.css';
 import LogoIcon from '../../assets/icons/logo.svg';
 import LinkColumn from '../linkColumn/LinkColumn';
 import SocialLink from '../socialLink/SocialLink';
 import { footerLinks, socialLinks } from '../../data/navData';
+import footer_bg from '../../assets/images/footer-bg.svg';
+import styles from './Footer.module.css';
 
 const Footer = () => {
     return (
-        <footer className={styles.container}>
+        <footer
+            className={styles.container}
+            style={{ backgroundImage: `url("${footer_bg}")` }}
+        >
             <div className={styles.content}>
                 <div className={styles.mainContent}>
                     <div className={styles.brandSection}>

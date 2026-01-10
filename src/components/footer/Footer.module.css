@@ -1,7 +1,6 @@
 .container {
     width: 100%;
     background-color: #f5fbfc;
-    background-image: url('../../assets/images/footer-bg.svg');
     background-repeat: no-repeat;
     padding: 6.25rem 7.5rem 3.75rem;
     background-position: -10% 100%;
