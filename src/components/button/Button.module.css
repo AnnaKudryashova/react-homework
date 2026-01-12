@@ -1,7 +1,9 @@
 .button {
     color: var(--color-white);
     text-align: center;
-    font: normal 400 1.06rem Inter, sans-serif;
+    font:
+        normal 400 1.06rem Inter,
+        sans-serif;
     line-height: 117.647%;
     padding: 0.94rem 2.19rem;
     background-color: var(--color-blue);

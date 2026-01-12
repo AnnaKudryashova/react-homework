@@ -18,7 +18,9 @@
 
 .headline {
     margin-bottom: 1.69rem;
-    font: normal 400 3.5rem Inter, sans-serif;
+    font:
+        normal 400 3.5rem Inter,
+        sans-serif;
     color: var(--color-black);
     letter-spacing: 0.11rem;
     max-width: 37.875rem;
@@ -37,7 +39,9 @@
 
 .description {
     color: var(--color-grey);
-    font: normal 400 1.12rem Inter, sans-serif;
+    font:
+        normal 400 1.12rem Inter,
+        sans-serif;
     line-height: 134%;
     letter-spacing: 0.02rem;
     margin-bottom: 3rem;

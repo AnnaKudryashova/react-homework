@@ -20,7 +20,9 @@
 
 .cartCount {
     color: var(--color-blue);
-    font: normal 400 0.81rem Inter, sans-serif;
+    font:
+        normal 400 0.81rem Inter,
+        sans-serif;
     position: absolute;
     top: -0.44rem;
     right: -0.44rem;

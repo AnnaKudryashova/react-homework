@@ -28,7 +28,9 @@
 
 .menuItem {
     color: #28224b;
-    font: normal 400 0.94rem Inter, sans-serif;
+    font:
+        normal 400 0.94rem Inter,
+        sans-serif;
     line-height: 1.33;
     cursor: default;
     transition: color 0.2s ease;

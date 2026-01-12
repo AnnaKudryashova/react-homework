@@ -2,14 +2,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 7.5rem;
+    padding: 8.75rem 7.5rem;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .title {
     margin: 0.81rem 0 1.63rem 0;
     text-align: center;
     color: var(--color-blue);
-    font: normal 400 3.13rem Inter, sans-serif;
+    font:
+        normal 400 3.13rem Inter,
+        sans-serif;
     line-height: 3.44rem;
     letter-spacing: 0.1rem;
 }
@@ -17,7 +21,9 @@
 .description {
     text-align: center;
     color: var(--color-grey);
-    font: normal 400 1rem Inter, sans-serif;
+    font:
+        normal 400 1rem Inter,
+        sans-serif;
     line-height: 1.69rem;
     letter-spacing: 0.02rem;
     word-wrap: break-word;

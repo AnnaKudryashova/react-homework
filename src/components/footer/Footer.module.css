@@ -6,6 +6,9 @@
     background-position: -10% 100%;
 }
 
+.content {
+}
+
 .mainContent {
     width: 100%;
     display: flex;
@@ -21,7 +24,9 @@
 
 .description {
     color: var(--color-grey);
-    font: normal 400 1rem Inter, sans-serif;
+    font:
+        normal 400 1rem Inter,
+        sans-serif;
     letter-spacing: 0.0225rem;
     text-align: start;
     margin: 1.56rem 0;
