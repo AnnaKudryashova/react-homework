@@ -6,7 +6,9 @@
     justify-content: center;
     border: 1px solid #8b8f9d4d;
     border-radius: 50%;
-    transition: background-color 0.3s, transform 0.3s;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
 }
 
 .socialLink:hover {

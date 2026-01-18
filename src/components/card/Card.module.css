@@ -7,7 +7,9 @@
     align-items: center;
     justify-content: center;
     padding: 1.625rem;
-    font: normal 400 1rem Inter, sans-serif;
+    font:
+        normal 400 1rem Inter,
+        sans-serif;
     line-height: 1.25rem;
 }
 
