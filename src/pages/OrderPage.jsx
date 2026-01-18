@@ -5,8 +5,19 @@ import {
     updateQuantity,
     clearCart,
 } from '../redux/slices/cartSlice.js';
+import QuantityInput from '../components/input/QuantityInput.jsx';
 import menuBg from '../assets/images/menu-bg.svg';
 import styles from './OrderPage.module.css';
+
+const OrderLayout = ({ children }) => (
+    <div
+        className={styles.orderPage}
+        style={{ backgroundImage: `url("${menuBg}")` }}
+    >
+        <h1 className={styles.title}>Finish your order</h1>
+        {children}
+    </div>
+);
 
 const OrderPage = () => {
     const dispatch = useDispatch();
@@ -24,45 +35,32 @@ const OrderPage = () => {
     };
 
     const handleQuantityChange = (id, newQuantity) => {
-        const quantity = parseInt(newQuantity) || 1;
+        const quantity = parseInt(newQuantity, 10) || 1;
         dispatch(updateQuantity({ id, quantity }));
     };
 
     if (orderPlaced) {
         return (
-            <div
-                className={styles.orderPage}
-                style={{ backgroundImage: `url("${menuBg}")` }}
-            >
-                <h1 className={styles.title}>Finish your order</h1>
+            <OrderLayout>
                 <div className={styles.successMessage}>
                     <p className={styles.successText}>
                         Your order has been placed successfully!
                     </p>
                 </div>
-            </div>
+            </OrderLayout>
         );
     }
 
     if (cartItems.length === 0) {
         return (
-            <div
-                className={styles.orderPage}
-                style={{ backgroundImage: `url("${menuBg}")` }}
-            >
-                <h1 className={styles.title}>Finish your order</h1>
+            <OrderLayout>
                 <p className={styles.emptyCart}>Your cart is empty!</p>
-            </div>
+            </OrderLayout>
         );
     }
 
     return (
-        <div
-            className={styles.orderPage}
-            style={{ backgroundImage: `url("${menuBg}")` }}
-        >
-            <h1 className={styles.title}>Finish your order</h1>
-
+        <OrderLayout>
             <div className={styles.cardList}>
                 {cartItems.map((item) => (
                     <div key={item.id} className={styles.cardRow}>
@@ -76,28 +74,21 @@ const OrderPage = () => {
                                 {item.meal}
                             </span>
                         </div>
-
                         <div className={styles.cardRight}>
                             <span className={styles.price}>
                                 $ {item.price.toFixed(2)} USD
                             </span>
-
-                            <div className={styles.quantityWrapper}>
-                                <input
-                                    type="number"
-                                    min="1"
-                                    value={item.quantity}
-                                    onChange={(e) =>
-                                        handleQuantityChange(
-                                            item.id,
-                                            e.target.value
-                                        )
-                                    }
-                                    className={styles.quantityInput}
-                                />
-                            </div>
-
+                            <QuantityInput
+                                value={item.quantity}
+                                onChange={(e) =>
+                                    handleQuantityChange(
+                                        item.id,
+                                        e.target.value,
+                                    )
+                                }
+                            />
                             <button
+                                type="button"
                                 className={styles.removeButton}
                                 onClick={() => handleRemoveItem(item.id)}
                             >
@@ -127,7 +118,6 @@ const OrderPage = () => {
                         placeholder=""
                     />
                 </div>
-
                 <div className={styles.fieldRow}>
                     <label className={styles.label} htmlFor="house">
                         House
@@ -139,7 +129,6 @@ const OrderPage = () => {
                         placeholder=""
                     />
                 </div>
-
                 <button
                     type="button"
                     className={styles.orderButton}
@@ -148,7 +137,7 @@ const OrderPage = () => {
                     Order
                 </button>
             </form>
-        </div>
+        </OrderLayout>
     );
 };
 

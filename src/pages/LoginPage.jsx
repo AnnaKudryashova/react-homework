@@ -1,22 +1,11 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setUser } from '../redux/slices/authSlice';
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-} from 'firebase/auth';
 import { useSelector, useDispatch } from 'react-redux';
-import { auth } from '../firebase';
+import { registerUser, loginUser, clearError } from '../redux/slices/authSlice';
 import Button from '../components/Button/Button';
 import AuthInput from '../components/input/AuthInput';
 import menuBg from '../assets/images/menu-bg.svg';
 import styles from './LoginPage.module.css';
-import {
-    setEmail,
-    setPassword,
-    toggleIsRegistering,
-    setError,
-    clearForm,
-} from '../redux/slices/loginSlice';
 
 const errorMap = {
     'auth/invalid-credential':
@@ -39,48 +28,31 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { email, password, isRegistering, error } = useSelector(
-        (state) => state.login
-    );
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isRegistering, setIsRegistering] = useState(false);
+
+    const { loading, error } = useSelector((state) => state.auth);
 
     const handleSubmit = async (e) => {
-        console.log('submit', { email, password, isRegistering });
         e.preventDefault();
+        dispatch(clearError());
 
-        try {
-            if (isRegistering) {
-                const cred = await createUserWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
-                );
-                const cleanUser = {
-                    uid: cred.user.uid,
-                    email: cred.user.email,
-                };
-                dispatch(setUser(cleanUser));
-            } else {
-                const cred = await signInWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
-                );
-                const cleanUser = {
-                    uid: cred.user.uid,
-                    email: cred.user.email,
-                };
-                dispatch(setUser(cleanUser));
-            }
-            dispatch(setError(''));
+        const result = isRegistering
+            ? await dispatch(registerUser({ email, password }))
+            : await dispatch(loginUser({ email, password }));
+
+        if (result.type.endsWith('/fulfilled')) {
+            setEmail('');
+            setPassword('');
             navigate('/order', { replace: true });
-        } catch (err) {
-            console.error('Firebase error:', err.code, err.message);
-            dispatch(setError(getErrorMessage(err.code)));
         }
     };
 
     const handleCancel = () => {
-        dispatch(clearForm());
+        setEmail('');
+        setPassword('');
+        setIsRegistering(false);
         navigate('/');
     };
 
@@ -99,7 +71,7 @@ const LoginPage = () => {
                     type="email"
                     placeholder="Email"
                     value={email}
-                    onChange={(e) => dispatch(setEmail(e.target.value))}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                 />
 
@@ -109,15 +81,25 @@ const LoginPage = () => {
                     type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => dispatch(setPassword(e.target.value))}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                 />
 
-                {error && <p className={styles.error}>{error}</p>}
+                {error && (
+                    <p className={styles.error}>{getErrorMessage(error)}</p>
+                )}
 
                 <div className={styles.buttons}>
-                    <Button type="submit" className={styles.submitButton}>
-                        {isRegistering ? 'Sign up' : 'Log in'}
+                    <Button
+                        type="submit"
+                        className={styles.submitButton}
+                        disabled={loading}
+                    >
+                        {loading
+                            ? 'Loading...'
+                            : isRegistering
+                              ? 'Sign up'
+                              : 'Log in'}
                     </Button>
                     <Button
                         type="button"
@@ -134,7 +116,7 @@ const LoginPage = () => {
                         ? 'Already have an account? '
                         : "Don't have an account? "}
                     <Button
-                        onClick={() => dispatch(toggleIsRegistering())}
+                        onClick={() => setIsRegistering(!isRegistering)}
                         className={styles.switchLink}
                     >
                         {isRegistering ? 'Sign in' : 'Sign up'}

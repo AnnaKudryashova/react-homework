@@ -65,21 +65,6 @@
     color: var(--color-blue);
 }
 
-.quantityWrapper {
-    display: flex;
-    align-items: center;
-}
-
-.quantityInput {
-    width: 3rem;
-    height: 2.1rem;
-    border-radius: 0.38rem;
-    border: 1px solid #e5e7eb;
-    text-align: center;
-    font-size: 0.94rem;
-    outline: none;
-}
-
 .removeButton {
     width: 2.4rem;
     height: 2.1rem;

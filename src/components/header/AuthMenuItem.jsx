@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../redux/slices/authSlice';
+import { logoutUser } from '../../redux/slices/authSlice';
 import headerStyles from './Header.module.css';
 import styles from './AuthMenuItem.module.css';
 
@@ -11,7 +11,7 @@ export const AuthMenuItem = () => {
     const user = useSelector((state) => state.auth.user);
 
     const handleLogout = async () => {
-        await dispatch(logout());
+        await dispatch(logoutUser());
         navigate('/', { replace: true });
     };
 

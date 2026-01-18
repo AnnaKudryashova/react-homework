@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const INITIAL_MEALS_COUNT = 6;
+
 const initialState = {
     selectedCategory: null,
-    mealsToShow: 6,
+    mealsToShowByCategory: {},
 };
 
 const filterSlice = createSlice({
@@ -11,27 +13,36 @@ const filterSlice = createSlice({
     reducers: {
         setCategory: (state, action) => {
             const newCategory = action.payload;
+
             if (state.selectedCategory === newCategory) {
                 state.selectedCategory = null;
-            } else {
-                state.selectedCategory = newCategory;
+                return;
             }
-            state.mealsToShow = 6;
+
+            state.selectedCategory = newCategory;
+
+            if (!state.mealsToShowByCategory[newCategory]) {
+                state.mealsToShowByCategory[newCategory] = INITIAL_MEALS_COUNT;
+            }
         },
+
         clearCategory: (state) => {
             state.selectedCategory = null;
-            state.mealsToShow = 6;
         },
-        setMealsToShow: (state, action) => {
-            state.mealsToShow = action.payload;
-        },
+
         loadMoreMeals: (state, action) => {
-            state.mealsToShow += action.payload || 6;
+            const category = state.selectedCategory;
+            if (!category) return;
+
+            const increment = action.payload ?? INITIAL_MEALS_COUNT;
+
+            state.mealsToShowByCategory[category] =
+                (state.mealsToShowByCategory[category] || INITIAL_MEALS_COUNT) +
+                increment;
         },
     },
 });
 
-export const { setCategory, clearCategory, setMealsToShow, loadMoreMeals } =
+export const { setCategory, clearCategory, loadMoreMeals } =
     filterSlice.actions;
-
 export default filterSlice.reducer;
