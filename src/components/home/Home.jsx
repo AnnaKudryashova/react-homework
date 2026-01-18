@@ -1,9 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css';
-import Button from '../Button/Button.jsx';
+import Button from '../button/Button.jsx';
 import foodImage from '../../assets/images/home.png';
 import trustpilotIcon from '../../assets/icons/trustpilot.svg';
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    const handlePlaceOrder = () => {
+        navigate('/order');
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.content}>
@@ -21,9 +28,7 @@ const Home = () => {
                         industry&#39;s standard dummy text ever since the 1500.
                     </div>
                     <div className={styles.actions}>
-                        <Button
-                            onClick={() => console.log('You placed an order!')}
-                        >
+                        <Button onClick={handlePlaceOrder}>
                             Place an Order
                         </Button>
                     </div>

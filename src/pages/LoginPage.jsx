@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-} from 'firebase/auth';
-import { auth } from '../firebase';
+import { useSelector, useDispatch } from 'react-redux';
+import { registerUser, loginUser, clearError } from '../redux/slices/authSlice';
+import Button from '../components/Button/Button';
 import AuthInput from '../components/input/AuthInput';
 import menuBg from '../assets/images/menu-bg.svg';
-import Button from '../components/Button/Button';
 import styles from './LoginPage.module.css';
 
 const errorMap = {
@@ -28,36 +25,34 @@ const getErrorMessage = (errorCode) => {
 };
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isRegistering, setIsRegistering] = useState(false);
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+
+    const { loading, error } = useSelector((state) => state.auth);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        dispatch(clearError());
 
-        try {
-            if (isRegistering) {
-                await createUserWithEmailAndPassword(auth, email, password);
-                console.log('User registered');
-            } else {
-                await signInWithEmailAndPassword(auth, email, password);
-                console.log('User logged in');
-            }
-            setError('');
+        const result = isRegistering
+            ? await dispatch(registerUser({ email, password }))
+            : await dispatch(loginUser({ email, password }));
+
+        if (result.type.endsWith('/fulfilled')) {
+            setEmail('');
+            setPassword('');
             navigate('/order', { replace: true });
-        } catch (error) {
-            console.error('Firebase error:', error.code, error.message);
-            setError(getErrorMessage(error.code));
-            console.error(error);
         }
     };
 
     const handleCancel = () => {
         setEmail('');
         setPassword('');
-        setError('');
+        setIsRegistering(false);
         navigate('/');
     };
 
@@ -90,13 +85,24 @@ const LoginPage = () => {
                     required
                 />
 
-                {error && <p className={styles.error}>{error}</p>}
+                {error && (
+                    <p className={styles.error}>{getErrorMessage(error)}</p>
+                )}
 
                 <div className={styles.buttons}>
-                    <Button type="submit" className={styles.submitButton}>
-                        {isRegistering ? 'Sign up' : 'Log in'}
+                    <Button
+                        type="submit"
+                        className={styles.submitButton}
+                        disabled={loading}
+                    >
+                        {loading
+                            ? 'Loading...'
+                            : isRegistering
+                              ? 'Sign up'
+                              : 'Log in'}
                     </Button>
                     <Button
+                        type="button"
                         onClick={handleCancel}
                         variant="secondary"
                         className={styles.cancelButton}
