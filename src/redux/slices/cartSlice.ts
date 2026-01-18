@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { MealItem } from '../../types/types';
 
-export interface CartItem {
-    id: string;
-    meal: string;
-    price: number;
-    img: string;
+export interface CartItem extends Pick<
+    MealItem,
+    'id' | 'meal' | 'price' | 'img'
+> {
     quantity: number;
 }
 

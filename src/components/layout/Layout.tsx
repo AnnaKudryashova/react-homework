@@ -1,13 +1,11 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import styles from './Layout.module.css';
 
-interface LayoutProps {
-    children: ReactNode;
-}
+interface ILayoutProps extends PropsWithChildren {}
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: ILayoutProps) => {
     return (
         <div className={styles.layout}>
             <Header />

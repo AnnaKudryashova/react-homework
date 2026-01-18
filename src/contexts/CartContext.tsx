@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, PropsWithChildren } from 'react';
 
 interface CartContextType {
     cartCount: number;
@@ -7,11 +7,9 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | null>(null);
 
-interface CartProviderProps {
-    children: ReactNode;
-}
+interface ICartProviderProps extends PropsWithChildren {}
 
-const CartProvider = ({ children }: CartProviderProps) => {
+const CartProvider = ({ children }: ICartProviderProps) => {
     const [cartCount, setCartCount] = useState<number>(0);
 
     const addToCart = (quantity: number = 1): void => {

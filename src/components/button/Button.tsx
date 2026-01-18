@@ -1,12 +1,10 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.css';
 
 type ButtonVariant = 'primary' | 'secondary';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode;
     variant?: ButtonVariant;
-    className?: string;
 }
 
 const Button = ({

@@ -1,13 +1,8 @@
-import {
-    createContext,
-    useEffect,
-    useState,
-    useContext,
-    ReactNode,
-} from 'react';
+import { createContext, useEffect, useState, useContext } from 'react';
 import { User } from 'firebase/auth';
 import { auth } from '../firebase';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { PropsWithChildren } from 'react';
 
 interface AuthContextType {
     user: User | null;
@@ -24,11 +19,9 @@ export const useAuth = (): AuthContextType => {
     return context;
 };
 
-interface AuthProviderProps {
-    children: ReactNode;
-}
+interface IAuthProviderProps extends PropsWithChildren {}
 
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider = ({ children }: IAuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
