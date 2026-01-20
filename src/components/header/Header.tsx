@@ -4,6 +4,7 @@ import { AuthMenuItem } from './AuthMenuItem';
 import styles from './Header.module.css';
 import logoIcon from '../../assets/icons/logo.svg';
 import { navItems } from '../../data/navData';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
     return (
@@ -17,6 +18,7 @@ const Header = () => {
                     />
                 </Link>
                 <div className={styles.cartNav}>
+                    <ThemeToggle />
                     <nav className={styles.navigation}>
                         <ul className={styles.menu}>
                             {navItems.map(({ path, label }) => (

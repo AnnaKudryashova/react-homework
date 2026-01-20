@@ -1,12 +1,12 @@
 .button {
-    color: var(--color-white);
+    color: var(--color-bg);
     text-align: center;
     font:
         normal 400 1.06rem Inter,
         sans-serif;
     line-height: 117.647%;
     padding: 0.94rem 2.19rem;
-    background-color: var(--color-blue);
+    background-color: var(--color-primary);
     border-radius: 0.38rem;
     border: 1px solid #6a7c8f33;
     cursor: pointer;
@@ -19,5 +19,5 @@
 
 .secondary {
     background-color: transparent;
-    color: #222;
+    color: var(--color-text);
 }

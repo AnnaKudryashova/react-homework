@@ -27,7 +27,7 @@
 }
 
 .menuItem {
-    color: #28224b;
+    color: var(--color-text);
     font:
         normal 400 0.94rem Inter,
         sans-serif;
@@ -37,7 +37,7 @@
 }
 
 .menuItem:hover {
-    color: var(--color-blue);
+    color: var(--color-primary);
 }
 
 .cartNav {
@@ -50,5 +50,5 @@
 }
 
 .menuLink.active {
-    color: var(--color-blue);
+    color: var(--color-primary);
 }

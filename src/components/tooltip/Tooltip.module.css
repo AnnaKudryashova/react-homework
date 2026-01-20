@@ -9,8 +9,8 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: var(--color-primary);
+    color: var(--color-bg);
     padding: 5px 10px;
     white-space: nowrap;
     visibility: hidden;

@@ -4,7 +4,6 @@ import { registerUser, loginUser, clearError } from '../redux/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import Button from '../components/button/Button';
 import AuthInput from '../components/input/AuthInput';
-import menuBg from '../assets/images/menu-bg.svg';
 import styles from './LoginPage.module.css';
 
 const errorMap: Record<string, string> = {
@@ -55,10 +54,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div
-            className={styles.loginPage}
-            style={{ backgroundImage: `url("${menuBg}")` }}
-        >
+        <div className={`${styles.loginPage} menu-bg`}>
             <h1 className={styles.title}>
                 {isRegistering ? 'Sign up' : 'Log in'}
             </h1>
