@@ -1,0 +1,43 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "menu": "Menu",
+        "order": "Commander",
+        "login": "Connexion",
+        "logout": "Déconnexion"
+    },
+    "footer": {
+        "companyTitle": "ENTREPRISE",
+        "templateTitle": "MODÈLE",
+        "flowbaseTitle": "FLOWBASE",
+        "company": {
+            "home": "Accueil",
+            "order": "Commander",
+            "faq": "FAQ",
+            "contact": "Contact"
+        },
+        "template": {
+            "styleGuide": "Guide de style",
+            "changelog": "Journal des modifications",
+            "license": "Licence",
+            "webflowUniversity": "Université Webflow"
+        },
+        "flowbase": {
+            "moreCloneables": "Plus de modèles"
+        },
+        "descriptionLine1": "Modèle de plats à emporter et livraison",
+        "descriptionLine2": "pour les petites et moyennes entreprises.",
+        "builtBy": "Créé par",
+        "poweredBy": "Propulsé par"
+    },
+    "home": {
+        "headlinePrefix": "De délicieux plats à emporter,",
+        "headlineHighlighted": "livrés",
+        "headlineSuffix": "directement chez vous.",
+        "description": "Lorem Ipsum est un faux texte utilisé dans l'industrie de l'imprimerie et de la composition. Il est le texte standard depuis les années 1500.",
+        "button": "Passer une commande",
+        "ratingScore": "4.8 sur 5",
+        "ratingText": "basé sur plus de 2000 avis",
+        "trustpilotLabel": "Trustpilot"
+    }
+}

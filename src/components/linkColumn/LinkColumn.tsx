@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import styles from './LinkColumn.module.css';
 import type { FooterLink } from '../../types/types';
 
@@ -7,20 +8,22 @@ interface LinkColumnProps {
 }
 
 const LinkColumn = ({ title, links }: LinkColumnProps) => {
+    const { t } = useTranslation();
+
     return (
         <div className={styles.linkColumn}>
             <h4 className={styles.linkTitle}>{title}</h4>
-            {links.map((link) => (
-                <a
-                    key={link.label}
-                    href={link.url ?? '#'}
-                    className={styles.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {link.label}
-                </a>
-            ))}
+            {links.map(({ label, url }) =>
+                url ? (
+                    <a key={label} href={url} className={styles.link}>
+                        {t(label)}
+                    </a>
+                ) : (
+                    <span key={label} className={styles.link}>
+                        {t(label)}
+                    </span>
+                ),
+            )}
         </div>
     );
 };

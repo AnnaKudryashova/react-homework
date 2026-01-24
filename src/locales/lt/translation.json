@@ -1,0 +1,43 @@
+{
+    "nav": {
+        "home": "Pagrindinis",
+        "menu": "Meniu",
+        "order": "Užsakymas",
+        "login": "Prisijungti",
+        "logout": "Atsijungti"
+    },
+    "footer": {
+        "companyTitle": "ĮMONĖ",
+        "templateTitle": "ŠABLONAS",
+        "flowbaseTitle": "FLOWBASE",
+        "company": {
+            "home": "Pagrindinis",
+            "order": "Užsakymas",
+            "faq": "DUK",
+            "contact": "Kontaktai"
+        },
+        "template": {
+            "styleGuide": "Stiliaus gidas",
+            "changelog": "Pakeitimų žurnalas",
+            "license": "Licencija",
+            "webflowUniversity": "Webflow universitetas"
+        },
+        "flowbase": {
+            "moreCloneables": "Daugiau šablonų"
+        },
+        "descriptionLine1": "Maisto išsinešimui ir pristatymo šablonas",
+        "descriptionLine2": "mažoms ir vidutinėms įmonėms.",
+        "builtBy": "Sukurta",
+        "poweredBy": "Palaikoma"
+    },
+    "home": {
+        "headlinePrefix": "Puikus maistas išsinešimui,",
+        "headlineHighlighted": "pristatytas",
+        "headlineSuffix": "tiesiai į jūsų namus.",
+        "description": "Lorem Ipsum yra demonstracinis tekstas, naudojamas spaudos ir maketavimo pramonėje. Jis tapo standartiniu tekstu nuo XVI amžiaus.",
+        "button": "Užsakyti dabar",
+        "ratingScore": "4.8 iš 5",
+        "ratingText": "remiantis daugiau nei 2000 atsiliepimų",
+        "trustpilotLabel": "Trustpilot"
+    }
+}
