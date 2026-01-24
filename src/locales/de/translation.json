@@ -1,0 +1,43 @@
+{
+    "nav": {
+        "home": "Startseite",
+        "menu": "Menü",
+        "order": "Bestellen",
+        "login": "Anmelden",
+        "logout": "Abmelden"
+    },
+    "footer": {
+        "companyTitle": "UNTERNEHMEN",
+        "templateTitle": "VORLAGE",
+        "flowbaseTitle": "FLOWBASE",
+        "company": {
+            "home": "Startseite",
+            "order": "Bestellen",
+            "faq": "FAQ",
+            "contact": "Kontakt"
+        },
+        "template": {
+            "styleGuide": "Styleguide",
+            "changelog": "Änderungsprotokoll",
+            "license": "Lizenz",
+            "webflowUniversity": "Webflow Universität"
+        },
+        "flowbase": {
+            "moreCloneables": "Weitere Vorlagen"
+        },
+        "descriptionLine1": "Takeaway & Lieferdienst Vorlage",
+        "descriptionLine2": "für kleine bis mittelgroße Unternehmen.",
+        "builtBy": "Erstellt von",
+        "poweredBy": "Bereitgestellt von"
+    },
+    "home": {
+        "headlinePrefix": "Leckeres Essen & Takeaway,",
+        "headlineHighlighted": "geliefert",
+        "headlineSuffix": "bis vor Ihre Haustür.",
+        "description": "Lorem Ipsum ist ein Blindtext der Druck- und Satzindustrie. Lorem Ipsum ist seit dem 16. Jahrhundert der Standard-Blindtext.",
+        "button": "Jetzt bestellen",
+        "ratingScore": "4.8 von 5",
+        "ratingText": "basierend auf über 2000 Bewertungen",
+        "trustpilotLabel": "Trustpilot"
+    }
+}

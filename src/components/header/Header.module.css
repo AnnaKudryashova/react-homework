@@ -5,6 +5,7 @@
 
 .content {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -18,16 +19,20 @@
     transform: scale(1.15);
 }
 
+.navigation {
+    display: flex;
+}
+
 .menu {
     display: flex;
     gap: 2rem;
-    margin-right: 3.94rem;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .menuItem {
-    color: #28224b;
+    color: var(--color-text);
     font:
         normal 400 0.94rem Inter,
         sans-serif;
@@ -37,11 +42,7 @@
 }
 
 .menuItem:hover {
-    color: var(--color-blue);
-}
-
-.cartNav {
-    display: flex;
+    color: var(--color-primary);
 }
 
 .menuLink {
@@ -50,5 +51,11 @@
 }
 
 .menuLink.active {
-    color: var(--color-blue);
+    color: var(--color-primary);
+}
+
+.utilities {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }

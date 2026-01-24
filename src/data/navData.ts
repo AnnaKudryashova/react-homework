@@ -1,47 +1,35 @@
-import type { NavItem, FooterLinkGroup, SocialLink } from '../types/types';
+import type { NavItem, FooterLinkGroup } from '../types/types';
 
 export const navItems: NavItem[] = [
-    { label: 'Home', path: '/' },
-    { label: 'Menu', path: '/menu' },
-    { label: 'Order', path: '/order' },
+    { label: 'nav.home', path: '/' },
+    { label: 'nav.menu', path: '/menu' },
+    { label: 'nav.order', path: '/order' },
 ];
 
 export const footerLinks: FooterLinkGroup[] = [
     {
-        title: 'COMPANY',
+        title: 'footer.companyTitle',
         links: [
-            { label: 'Home' },
-            { label: 'Order' },
-            { label: 'FAQ' },
-            { label: 'Contact' },
+            { label: 'footer.company.home' },
+            { label: 'footer.company.order' },
+            { label: 'footer.company.faq' },
+            { label: 'footer.company.contact' },
         ],
     },
     {
-        title: 'TEMPLATE',
+        title: 'footer.templateTitle',
         links: [
-            { label: 'Style Guide', url: 'https://google.com' },
-            { label: 'Changelog', url: 'https://google.com' },
-            { label: 'License', url: 'https://google.com' },
-            { label: 'Webflow University', url: 'https://google.com' },
+            { label: 'footer.template.styleGuide', url: 'https://google.com' },
+            { label: 'footer.template.changelog', url: 'https://google.com' },
+            { label: 'footer.template.license', url: 'https://google.com' },
+            {
+                label: 'footer.template.webflowUniversity',
+                url: 'https://google.com',
+            },
         ],
     },
     {
-        title: 'FLOWBASE',
-        links: [{ label: 'More Cloneables' }],
-    },
-];
-
-export const socialLinks: SocialLink[] = [
-    {
-        icon: 'src/assets/icons/instagram.svg',
-        alt: 'Instagram',
-    },
-    {
-        icon: 'src/assets/icons/twitter.svg',
-        alt: 'Twitter',
-    },
-    {
-        icon: 'src/assets/icons/youtube.svg',
-        alt: 'YouTube',
+        title: 'footer.flowbaseTitle',
+        links: [{ label: 'footer.flowbase.moreCloneables' }],
     },
 ];
