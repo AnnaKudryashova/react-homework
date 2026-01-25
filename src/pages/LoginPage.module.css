@@ -13,12 +13,12 @@
 .title {
     font-size: 3rem;
     font-weight: 400;
-    color: var(--color-blue);
+    color: var(--color-primary);
     margin-bottom: 2.5rem;
 }
 
 .form {
-    background-color: var(--color-white);
+    background-color: var(--color-bg-secondary);
     padding: 3rem 4rem;
     border-radius: 0.5rem;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
@@ -39,7 +39,7 @@
     width: 7rem;
     text-align: left;
     font-size: 1rem;
-    color: var(--color-grey);
+    color: var(--color-secondary);
 }
 
 .input {
@@ -70,13 +70,13 @@
 }
 
 .cancelButton {
-    color: var(--color-grey);
+    color: var(--color-secondary);
 }
 
 .switchText {
     margin-top: 1rem;
     font-size: 0.9rem;
-    color: #4b5563;
+    color: var(--color-secondary);
     text-align: center;
 }
 
@@ -86,7 +86,7 @@
     padding: 0;
     margin-left: 0.25rem;
     font: inherit;
-    color: var(--color-blue);
+    color: var(--color-primary);
     cursor: pointer;
 }
 

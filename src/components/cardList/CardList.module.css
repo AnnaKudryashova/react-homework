@@ -2,7 +2,7 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(1, 1fr);
-    background-color: #f5fbfc;
+    background-color: var(--color-bg);
     margin-bottom: 65px;
 
     @media (min-width: 900px) {
