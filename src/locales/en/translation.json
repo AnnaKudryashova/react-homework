@@ -1,0 +1,43 @@
+{
+    "nav": {
+        "home": "Home",
+        "menu": "Menu",
+        "order": "Order",
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "footer": {
+        "companyTitle": "COMPANY",
+        "templateTitle": "TEMPLATE",
+        "flowbaseTitle": "FLOWBASE",
+        "company": {
+            "home": "Home",
+            "order": "Order",
+            "faq": "FAQ",
+            "contact": "Contact"
+        },
+        "template": {
+            "styleGuide": "Style Guide",
+            "changelog": "Changelog",
+            "license": "License",
+            "webflowUniversity": "Webflow University"
+        },
+        "flowbase": {
+            "moreCloneables": "More Cloneables"
+        },
+        "descriptionLine1": "Takeaway & Delivery template",
+        "descriptionLine2": "for small - medium businesses.",
+        "builtBy": "Built by",
+        "poweredBy": "Powered by"
+    },
+    "home": {
+        "headlinePrefix": "Beautiful food & takeaway,",
+        "headlineHighlighted": "delivered",
+        "headlineSuffix": "to your door.",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+        "button": "Place an Order",
+        "ratingScore": "4.8 out of 5",
+        "ratingText": "based on 2000+ reviews",
+        "trustpilotLabel": "Trustpilot"
+    }
+}

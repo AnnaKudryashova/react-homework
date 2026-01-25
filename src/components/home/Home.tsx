@@ -3,9 +3,11 @@ import styles from './Home.module.css';
 import Button from '../button/Button';
 import foodImage from '../../assets/images/home.png';
 import trustpilotIcon from '../../assets/icons/trustpilot.svg';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const handlePlaceOrder = () => {
         navigate('/order');
@@ -17,34 +19,34 @@ const Home = () => {
                 <div className={styles.textContent}>
                     <div className={styles.headline}>
                         <span className={styles.ctaContainer}>
-                            Beautiful food &amp; takeaway,{' '}
-                            <span className={styles.ctaLink}>delivered</span> to
-                            your door.
+                            {t('home.headlinePrefix')}{' '}
+                            <span className={styles.ctaLink}>
+                                {t('home.headlineHighlighted')}
+                            </span>{' '}
+                            {t('home.headlineSuffix')}
                         </span>
                     </div>
                     <div className={styles.description}>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500.
+                        {t('home.description')}
                     </div>
                     <div className={styles.actions}>
                         <Button onClick={handlePlaceOrder}>
-                            Place an Order
+                            {t('home.button')}
                         </Button>
                     </div>
                     <div className={styles.trustIndicator}>
                         <img
                             className={styles.trustpilotIcon}
                             src={trustpilotIcon}
-                            alt="Trustpilot"
+                            alt={t('home.trustpilotLabel')}
                         />
                         <div className={styles.rating}>
                             <a href="/" className={styles.ratingLink}>
                                 <span className={styles.ratingScore}>
-                                    4.8 out of 5
+                                    {t('home.ratingScore')}
                                 </span>
                             </a>
-                            based on 2000+ reviews
+                            {` ${t('home.ratingText')}`}
                         </div>
                     </div>
                 </div>

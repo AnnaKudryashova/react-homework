@@ -3,10 +3,12 @@ import headerStyles from './Header.module.css';
 import styles from './AuthMenuItem.module.css';
 import { logoutUser } from '../../redux/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useTranslation } from 'react-i18next';
 
 export const AuthMenuItem = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    const { t } = useTranslation();
 
     const user = useAppSelector((state) => state.auth.user);
 
@@ -26,7 +28,7 @@ export const AuthMenuItem = () => {
                         }`
                     }
                 >
-                    Login
+                    {t('nav.login')}
                 </NavLink>
             </li>
         );
@@ -39,7 +41,7 @@ export const AuthMenuItem = () => {
                 onClick={handleLogout}
                 className={styles.logoutButton}
             >
-                Logout
+                {t('nav.logout')}
             </button>
         </li>
     );
