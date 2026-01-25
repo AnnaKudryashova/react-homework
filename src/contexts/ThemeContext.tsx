@@ -34,8 +34,13 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
     useEffect(() => {
         const root = document.documentElement;
-        root.classList.remove('light', 'dark');
-        root.classList.add(theme);
+        const oldTheme = theme === 'light' ? 'dark' : 'light';
+
+        if (!root.classList.contains(oldTheme)) {
+            root.classList.add(theme);
+        } else {
+            root.classList.replace(oldTheme, theme);
+        }
     }, [theme]);
 
     const toggleTheme = () => {
