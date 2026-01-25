@@ -33,6 +33,7 @@
 
 .menuItem {
     color: var(--color-text);
+    color: var(--color-text);
     font:
         normal 400 0.94rem Inter,
         sans-serif;

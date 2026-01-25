@@ -21,14 +21,14 @@
     font:
         normal 400 3.5rem Inter,
         sans-serif;
-    color: var(--color-black);
+    color: var(--color-text);
     letter-spacing: 0.11rem;
     max-width: 37.875rem;
 }
 
 .ratingScore,
 .ctaLink {
-    color: var(--color-blue);
+    color: var(--color-primary);
 }
 
 .rating {
@@ -38,7 +38,7 @@
 }
 
 .description {
-    color: var(--color-grey);
+    color: var(--color-secondary);
     font:
         normal 400 1.12rem Inter,
         sans-serif;

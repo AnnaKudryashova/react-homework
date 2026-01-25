@@ -5,7 +5,7 @@ import youtubeIcon from '../../assets/icons/youtube.svg';
 
 import LinkColumn from '../linkColumn/LinkColumn';
 import SocialLink from '../socialLink/SocialLink';
-import { footerLinks } from '../../data/navData';
+import { footerLinks, socialLinks } from '../../data/navData';
 import styles from './Footer.module.css';
 import { useTranslation } from 'react-i18next';
 

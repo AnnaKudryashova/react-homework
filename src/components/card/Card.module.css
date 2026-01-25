@@ -1,6 +1,6 @@
 .card {
     min-width: 36.25rem;
-    background: var(--color-white);
+    background-color: var(--color-bg-secondary);
     border-radius: 0.375rem;
     border: 1px solid #35b8be26;
     display: flex;
@@ -38,7 +38,7 @@
 }
 
 .cardName {
-    color: var(--color-black);
+    color: var(--color-text);
     font-size: 1.125rem;
     letter-spacing: 0.0375rem;
     flex: 1;
@@ -51,7 +51,7 @@
 }
 
 .cardPrice {
-    color: var(--color-blue);
+    color: var(--color-primary);
     font-size: 1rem;
     white-space: nowrap;
     flex-shrink: 0;
@@ -59,7 +59,7 @@
 
 .cardDescription {
     max-width: 21.937rem;
-    color: var(--color-grey);
+    color: var(--color-secondary);
     font-size: 1rem;
     line-height: 1.5rem;
     text-align: start;

@@ -1,6 +1,5 @@
 import { ReactNode, useState } from 'react';
 import QuantityInput from '../components/input/QuantityInput';
-import menuBg from '../assets/images/menu-bg.svg';
 import styles from './OrderPage.module.css';
 import {
     removeFromCart,
@@ -14,10 +13,7 @@ interface OrderLayoutProps {
 }
 
 const OrderLayout = ({ children }: OrderLayoutProps) => (
-    <div
-        className={styles.orderPage}
-        style={{ backgroundImage: `url("${menuBg}")` }}
-    >
+    <div className={`${styles.orderPage} menu-bg`}>
         <h1 className={styles.title}>Finish your order</h1>
         {children}
     </div>
