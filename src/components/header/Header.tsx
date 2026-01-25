@@ -4,9 +4,9 @@ import { AuthMenuItem } from './AuthMenuItem';
 import styles from './Header.module.css';
 import logoIcon from '../../assets/icons/logo.svg';
 import { navItems } from '../../data/navData';
+import { ThemeToggle } from './ThemeToggle';
 import { LanguageDropdown } from './LanguageDropdown';
 import { useTranslation } from 'react-i18next';
-import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
     const { t } = useTranslation();
@@ -22,7 +22,6 @@ const Header = () => {
                     />
                 </Link>
 
-                <ThemeToggle />
                 <nav className={styles.navigation}>
                     <ul className={styles.menu}>
                         {navItems.map(({ path, label }) => (
@@ -45,6 +44,7 @@ const Header = () => {
 
                 <div className={styles.utilities}>
                     <LanguageDropdown />
+                    <ThemeToggle />
                     <CartButton />
                 </div>
             </div>
