@@ -8,7 +8,10 @@ import {
     signInWithEmailAndPassword,
     signOut,
     UserCredential,
+    onAuthStateChanged,
+    User,
 } from 'firebase/auth';
+import type { AppDispatch } from '../store';
 import { auth } from '../../firebase';
 
 interface AuthUser {
@@ -37,9 +40,7 @@ const mapError = (action: {
     payload?: unknown;
     error: SerializedError;
 }): string =>
-    (typeof action.payload === 'string'
-        ? action.payload
-        : action.error.message) || 'Unknown error';
+    (action.payload as string) || action.error.message || 'Unknown error';
 
 export const registerUser = createAsyncThunk<
     AuthUser,
@@ -82,12 +83,41 @@ export const logoutUser = createAsyncThunk<void, void, { rejectValue: string }>(
     },
 );
 
+export const initAuthListener = () => (dispatch: AppDispatch) => {
+    dispatch(setLoading(true));
+
+    const unsubscribe = onAuthStateChanged(
+        auth,
+        (firebaseUser: User | null) => {
+            if (firebaseUser) {
+                dispatch(
+                    setUserFromAuth({
+                        uid: firebaseUser.uid,
+                        email: firebaseUser.email,
+                    }),
+                );
+            } else {
+                dispatch(setUserFromAuth(null));
+            }
+        },
+    );
+
+    return unsubscribe;
+};
+
 const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
         clearError(state) {
             state.error = null;
+        },
+        setUserFromAuth(state, action: { payload: AuthUser | null }) {
+            state.user = action.payload;
+            state.loading = false;
+        },
+        setLoading(state, action: { payload: boolean }) {
+            state.loading = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -118,6 +148,7 @@ const authSlice = createSlice({
             })
             .addCase(logoutUser.pending, (state) => {
                 state.loading = true;
+                state.error = null;
             })
             .addCase(logoutUser.fulfilled, (state) => {
                 state.loading = false;
@@ -131,5 +162,5 @@ const authSlice = createSlice({
     },
 });
 
-export const { clearError } = authSlice.actions;
+export const { clearError, setUserFromAuth, setLoading } = authSlice.actions;
 export default authSlice.reducer;

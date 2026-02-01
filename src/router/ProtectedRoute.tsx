@@ -10,7 +10,10 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-    const user = useSelector((state: RootState) => state.auth.user);
+    const { user, loading } = useSelector((state: RootState) => state.auth);
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     if (!user) {
         return <RedirectToLogin />;
