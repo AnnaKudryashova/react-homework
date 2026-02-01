@@ -21,8 +21,8 @@ const saveLog = <T>(entry: LogEntry<T>) => {
 
 const useFetch = <T>(url: string) => {
     const [data, setData] = useState<T | null>(null);
-    const [error, setError] = useState<unknown>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [error, setError] = useState<Error | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [status, setStatus] = useState<number | null>(null);
 
     const fetchData = useCallback(async () => {
@@ -35,25 +35,31 @@ const useFetch = <T>(url: string) => {
             const statusCode = response.status;
             setStatus(statusCode);
 
-            const responseBody: T | null = response.ok
-                ? await response.json()
-                : null;
+            if (!response.ok) {
+                throw new Error(`HTTP ${statusCode}`);
+            }
 
-            saveLog<T>({
+            const responseBody: T = await (response.json() as Promise<T>);
+
+            saveLog({
                 timestamp,
-                type: response.ok ? 'success' : 'error',
+                type: 'success' as const,
                 url,
                 status: statusCode,
                 response: responseBody,
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${statusCode}`);
-            }
-
             setData(responseBody);
         } catch (err) {
-            setError(err);
+            const error = err as Error;
+            saveLog({
+                timestamp,
+                type: 'error' as const,
+                url,
+                status: status || 0,
+                response: null,
+            });
+            setError(error);
         } finally {
             setIsLoading(false);
         }
@@ -61,9 +67,9 @@ const useFetch = <T>(url: string) => {
 
     useEffect(() => {
         fetchData();
-    }, [fetchData]);
+    }, [url]);
 
-    return { data, error, isLoading, status };
+    return { data, error, isLoading, status, refetch: fetchData };
 };
 
 export default useFetch;

@@ -7,11 +7,13 @@ import LoginPage from './pages/LoginPage';
 import OrderPage from './pages/OrderPage';
 import Layout from './components/layout/Layout';
 import ProtectedRoute from './router/ProtectedRoute';
+import AuthInitializer from './features/auth/AuthInitializer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => (
     <Provider store={store}>
         <BrowserRouter>
+            <AuthInitializer />
             <div className="App">
                 <div className="main-container">
                     <Layout>
