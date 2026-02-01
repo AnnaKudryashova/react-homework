@@ -8,7 +8,7 @@ export interface CartItem extends Pick<
     quantity: number;
 }
 
-interface CartState {
+export interface CartState {
     items: CartItem[];
     totalItems: number;
     totalPrice: number;
