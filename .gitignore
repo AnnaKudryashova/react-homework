@@ -19,6 +19,7 @@ pnpm-debug.log*
 .env
 .env.local
 
+coverage
 
 # Editor directories and files
 .vscode/*
