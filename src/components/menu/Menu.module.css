@@ -74,3 +74,9 @@
     letter-spacing: 0.02rem;
     text-align: center;
 }
+
+.loaderWrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}

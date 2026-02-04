@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import Button from '../button/Button';
 import headerStyles from './Header.module.css';
 import styles from './AuthMenuItem.module.css';
 import { logoutUser } from '../../redux/slices/authSlice';
@@ -36,13 +37,14 @@ export const AuthMenuItem = () => {
 
     return (
         <li className={headerStyles.menuItem}>
-            <button
+            <Button
                 type="button"
                 onClick={handleLogout}
                 className={styles.logoutButton}
+                variant="secondary"
             >
                 {t('nav.logout')}
-            </button>
+            </Button>
         </li>
     );
 };

@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react';
 import QuantityInput from '../components/input/QuantityInput';
+import Button from '../components/button/Button';
 import styles from './OrderPage.module.css';
 import {
     removeFromCart,
@@ -24,7 +25,7 @@ const OrderPage = () => {
     const cartItems = useAppSelector((state) => state.cart.items);
     const totalPrice = useAppSelector((state) => state.cart.totalPrice);
 
-    const [orderPlaced, setOrderPlaced] = useState<boolean>(false);
+    const [orderPlaced, setOrderPlaced] = useState(false);
 
     const handleOrderClick = () => {
         dispatch(clearCart());
@@ -130,13 +131,13 @@ const OrderPage = () => {
                         placeholder=""
                     />
                 </div>
-                <button
+                <Button
                     type="button"
                     className={styles.orderButton}
                     onClick={handleOrderClick}
                 >
                     Order
-                </button>
+                </Button>
             </form>
         </OrderLayout>
     );

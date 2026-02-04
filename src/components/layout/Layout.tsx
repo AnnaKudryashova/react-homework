@@ -1,15 +1,15 @@
-import { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import styles from './Layout.module.css';
 
-interface ILayoutProps extends PropsWithChildren {}
-
-const Layout = ({ children }: ILayoutProps) => {
+const Layout = () => {
     return (
         <div className={styles.layout}>
             <Header />
-            <main className={styles.mainContent}>{children}</main>
+            <main className={styles.mainContent}>
+                <Outlet />
+            </main>
             <Footer />
         </div>
     );

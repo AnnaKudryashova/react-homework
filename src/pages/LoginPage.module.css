@@ -69,6 +69,11 @@
     height: 3rem;
 }
 
+.submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .cancelButton {
     color: var(--color-secondary);
 }
@@ -92,4 +97,17 @@
 
 .switchLink:hover {
     text-decoration: underline;
+}
+
+.spinnerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinnerContainer {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

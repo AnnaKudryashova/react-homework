@@ -3,6 +3,7 @@ import styles from './Menu.module.css';
 import Button from '../button/Button';
 import CardList from '../cardList/CardList';
 import Tooltip from '../tooltip/Tooltip';
+import LoadingSpinner from '../loadingSpinner/LoadingSpinner';
 import { fetchMeals } from '../../redux/slices/mealsSlice';
 import { setCategory, loadMoreMeals } from '../../redux/slices/filterSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -29,7 +30,7 @@ const Menu = () => {
         }
     }, [dispatch, meals.length]);
 
-    const categories = useMemo(
+    const categories = useMemo<string[]>(
         () =>
             meals.length
                 ? [
@@ -53,8 +54,9 @@ const Menu = () => {
     }, [meals, selectedCategory]);
 
     const mealsToShow =
-        mealsToShowByCategory[selectedCategory as string] ??
-        INITIAL_MEALS_COUNT;
+        selectedCategory && mealsToShowByCategory[selectedCategory]
+            ? mealsToShowByCategory[selectedCategory]
+            : INITIAL_MEALS_COUNT;
 
     const visibleMeals = filteredMeals.slice(0, mealsToShow);
 
@@ -97,8 +99,10 @@ const Menu = () => {
                 ))}
             </div>
 
-            {isLoading ? (
-                <p>Menu loading in progress...</p>
+            {isLoading && visibleMeals.length === 0 ? (
+                <div className={styles.loaderWrapper}>
+                    <LoadingSpinner />
+                </div>
             ) : visibleMeals.length > 0 ? (
                 <>
                     <CardList cards={visibleMeals} />

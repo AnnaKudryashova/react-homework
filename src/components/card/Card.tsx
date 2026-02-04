@@ -13,7 +13,7 @@ const Card = ({ item }: CardProps) => {
     const dispatch = useAppDispatch();
     const { meal, price, img, instructions, id } = item;
 
-    const [quantity, setQuantity] = useState<number>(1);
+    const [quantity, setQuantity] = useState(1);
 
     const handleAddToCart = () => {
         dispatch(
@@ -48,6 +48,7 @@ const Card = ({ item }: CardProps) => {
                         value={quantity}
                         onChange={handleQuantityChange}
                         className={styles.quantityInput}
+                        aria-label="Quantity"
                     />
                     <Button
                         onClick={handleAddToCart}
